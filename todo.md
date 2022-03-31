@@ -45,7 +45,6 @@ Challenges:
 
 Now that we know whose posts and comments are whose, we can do some **Authorization**.
 
-> [info]
 > **Authorization** means we are allowing some users to do certain things and preventing others. Some examples are admin users might be able to do all kinds of things, and normal users cannot. A common example of authorization is only allowing people to edit or delete instances they created.
 
 We're going to prevent someone from commenting on their own post.
