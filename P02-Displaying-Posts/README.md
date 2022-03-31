@@ -74,7 +74,7 @@ app.get('/', (req, res) => {
 As a stretch challenge try rewritting the code block above to be async/await.
 Here are some video resources:
 
-[![Watch the video](https://img.invidious.tube/vi/vn3tm0quoqE/maxresdefault.jpg)](https://invidious.tube/watch?v=vn3tm0quoqE)
+[Fireship](https://invidious.tube/watch?v=vn3tm0quoqE)
 
 [The Event Loop](https://invidious.tube/watch?v=cCOL7MC4Pl0)
 
@@ -103,7 +103,7 @@ app.get('/', async (req, res) => {
   }
 });
 ```
->
+
 > Now, how clean does that async/await code look?
 
 
@@ -116,9 +116,9 @@ Now, back to those `posts`! Let's fix them up and display the them properly.
 
 # Styling and Looping Over Posts
 
-> [action]
+
 > If you haven't already, let's go back to our layout template `main.handlebars` and put the whole `{{{body}}}` object into a div with a container class.
->
+
 ```html
 <div class="container">
   {{{body}}}
@@ -127,9 +127,9 @@ Now, back to those `posts`! Let's fix them up and display the them properly.
 
 Great, now let's go back to `posts-index.handlebars` and make it look good!
 
-> [action]
+
 > To start, we'll put the list of posts into the middle 8 columns of the grid.
->
+
 ```html
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
@@ -140,9 +140,9 @@ Great, now let's go back to `posts-index.handlebars` and make it look good!
 
 Now that we have `{{posts}}`, we can use handlebars' [built in `each` operator](https://handlebarsjs.com/guide/builtin-helpers.html#each) to loop over the posts, and display each one.
 
-> [action]
+
 > In each post, use bootstrap's `list-group` and `list-group-item` classes. Display the post title in a div with the class `lead`, and add an anchor tag that links to the post's url. Finally, add `target="_blank"` to the anchor tag, so that the url opens in a new tab. Here's the full `posts-index.handlebars`:
->
+
 ```html
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
@@ -172,9 +172,9 @@ In order to view a single post when a user clicks on it, we'll need to establish
 
 Let's begin with the **user action** - clicking on a post in the `post-index` template.
 
-> [action]
+
 > Replace the current `div` for displaying a post's `title` with the following:
->
+
 ```html
 <div class="lead"><a href="/posts/{{this._id}}">{{this.title}}</a></div>
 ```
@@ -185,9 +185,9 @@ The title is a link to the show page. If we click it, what happens? Error! No ro
 
 We need the path `/posts/:id` to resolve to displaying a `posts-show` template.
 
-> [action]
+
 > open `controllers/posts.js`, and add a new GET endpoint. Make sure all middleware requirements happen ABOVE it:
->
+
 ```js
 // LOOK UP THE POST
 app.get('/posts/:id', (req, res) => {
@@ -200,8 +200,7 @@ app.get('/posts/:id', (req, res) => {
 ```
 
 **Async/Await stretch challenge!**
->[challenge]
->
+
 Refactor the code block above to be async/await.
 If you get stuck, there are video and text resources linked at the first async/await stretch challenge.
 
@@ -211,9 +210,9 @@ What happens if we refresh? No template!
 
 Time to template. As a bare minimum we'll use some bootstrap classes to make things look reasonable as we continue to develop the application.
 
-> [action]
+
 > In your `views` folder, make `posts-show.handlebars` with the following template:
->
+
 ```html
 <div class="row">
   <div class="col-sm-6 col-sm-offset-3">
