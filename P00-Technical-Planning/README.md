@@ -85,7 +85,7 @@ Ok --- we've got user narratives, wireframes, and a plan for the first few featu
 
 Follow this video for how to setup an Express.js project with Handlebars:
 
-[![Watch the video](https://img.youtube.com/vi/41PToE2zYGY&t/maxresdefault.jpg)](https://www.youtube.com/watch?v=41PToE2zYGY&t=3s) 
+[![Watch the video](https://img.youtube.com/vi/41PToE2zYGY/maxresdefault.jpg)](https://www.youtube.com/watch?v=41PToE2zYGY&t=3s) 
 
 1. Create an npm project (hint: `npm init`) - remember to make your main file called `server.js`. Use the express documentation or a previous project to set up the boilerplate code for the server.
 2. Start Express.js. You can use Handlebars or Jade as a templating engine if you like. **This tutorial will use Handlebars**. Should you use Handlebars, you should make sure that `express-handlebars` is installed. Navigate to [express-handlebars](https://github.com/express-handlebars/express-handlebars) and read the **Usage** documentation for how to do this.
