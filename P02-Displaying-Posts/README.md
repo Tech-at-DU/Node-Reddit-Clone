@@ -1,6 +1,5 @@
 ---
-title: "Displaying All Posts"
-slug: displaying-posts
+# Displaying All Posts
 ---
 
 Alright next step! Now that we can create posts, let's display them.
