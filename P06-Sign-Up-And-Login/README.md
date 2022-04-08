@@ -1,6 +1,5 @@
 ---
-title: "Sign Up, Logout, and Login"
-slug: sign-up-and-login
+# Sign Up, Logout, and Login
 ---
 
 Alright next step! Its time to allow people to take responsibility for the silly things they are posting on our Reddit clone. We are going to create user accounts so folks can securely signup and login using a username and password.
