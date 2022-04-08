@@ -1,6 +1,5 @@
 ---
-title: "Associate Posts and Comments with User"
-slug: associate-posts-and-comments-with-user
+# Associate Posts and Comments with User
 ---
 
 Alright next step! Its time to allow people to take responsibility for the silly things they are posting on our Reddit clone. We are going to create user accounts so folks can securely signup and login using a username and password.
