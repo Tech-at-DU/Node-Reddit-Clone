@@ -1,6 +1,6 @@
 ---
-title: "Create a Post"
-slug: create-a-post
+# "Create a Post"
+
 ---
 
 Follow the technical planning list we made, and make sub tasks for each major feature.
