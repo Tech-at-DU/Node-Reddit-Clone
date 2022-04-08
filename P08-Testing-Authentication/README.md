@@ -1,6 +1,5 @@
 ---
-title: "Testing Authentication"
-slug: testing-authentication
+Testing Authentication
 ---
 
 So we can do authentication, but what if the next time we turn around, this feature breaks? How would we catch it? The answer is more automated tests!
