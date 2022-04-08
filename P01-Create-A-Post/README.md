@@ -1,5 +1,5 @@
 ---
-# "Create a Post"
+# Create a Post
 
 ---
 
