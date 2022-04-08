@@ -1,6 +1,5 @@
 ---
-title: "Comments on Comments"
-slug: comments-on-comments
+# Comments on Comments
 ---
 
 So last lesson we were thinking through how to put comments inside other comments. Now we are going to actually do it!
