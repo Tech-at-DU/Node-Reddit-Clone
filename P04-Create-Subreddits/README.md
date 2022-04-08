@@ -1,6 +1,5 @@
 ---
-title: "Creating Subreddits"
-slug: create-subreddits
+# Creating Subreddits
 ---
 
 We've got posts, but let's categorize them into subreddits.
