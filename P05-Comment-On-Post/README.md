@@ -1,6 +1,5 @@
 ---
-title: "Comment on Posts"
-slug: comment-on-post
+# Comment on Posts
 ---
 
 Alright next step! We can see those posts, let's comment on them.
