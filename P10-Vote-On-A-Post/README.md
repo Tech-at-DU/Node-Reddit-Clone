@@ -1,6 +1,5 @@
 ---
-title: "Vote On a Post"
-slug: vote-on-a-post
+# Vote On a Post
 ---
 
 Alright, we've almost got our Reddit clone complete! We're on to the final piece: Voting!
