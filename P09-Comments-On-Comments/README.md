@@ -27,12 +27,9 @@ We're going to be using our optimization in a lot of places, so we should make i
 
 > Any time you have the same functionality used in multiple areas of a project, it's best to make a `util` folder where you can store all your functions for repeated use.
 
-<!-- -->
+Create a `util` folder, and create an `autopopulate.js` file in it
 
-
-> Create a `util` folder, and create an `autopopulate.js` file in it
-
-> In `autopopulate.js`, place the following code:
+In `autopopulate.js`, place the following code:
 
 ```js
 module.exports = (field) => function (next) {
@@ -44,9 +41,9 @@ module.exports = (field) => function (next) {
 Great! Because this function recursively calls itself, we can now populate fields every time we load a model! Let's make some changes so that our `posts` and `comments` take advantage of this functionality.
 
 
-> Update `/models/post.js` and `/models/comment.js` to use your new `util`. We also need to update the schema in `/models/comment.js` to include a new `comments` property so that comments can support comments of their own:
+Update `/models/post.js` and `/models/comment.js` to use your new `util`. We also need to update the schema in `/models/comment.js` to include a new `comments` property so that comments can support comments of their own:
 
-> `/models/post.js`
+`/models/post.js`
 
 ```js
 // models/post.js
@@ -64,7 +61,7 @@ postSchema
 module.exports = model('Post', postSchema);
 ```
 
-> `/models/comment.js`
+`/models/comment.js`
 
 ```js
 const { Schema, model } = require('mongoose');
