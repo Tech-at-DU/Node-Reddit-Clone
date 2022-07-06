@@ -1,6 +1,4 @@
----
 # Comments on Comments
----
 
 So last lesson we were thinking through how to put comments inside other comments. Now we are going to actually do it!
 
@@ -43,8 +41,6 @@ Great! Because this function recursively calls itself, we can now populate field
 
 Update `/models/post.js` and `/models/comment.js` to use your new `util`. We also need to update the schema in `/models/comment.js` to include a new `comments` property so that comments can support comments of their own:
 
-`/models/post.js`
-
 ```js
 // models/post.js
 const { Schema, model } = require('mongoose');
@@ -61,9 +57,9 @@ postSchema
 module.exports = model('Post', postSchema);
 ```
 
-`/models/comment.js`
-
 ```js
+// models/comment.js
+
 const { Schema, model } = require('mongoose');
 const Populate = require('../util/autopopulate');
 
@@ -85,7 +81,7 @@ module.exports = model('Comment', commentSchema);
 
 Finally, let's update our controllers to simplify their logic to just use the [lean](https://mongoosejs.com/docs/api.html#query_Query-lean) method.
 
-> Simplify your `/posts/show/` and `/subreddit/show/` methods in `/controllers/post.js`
+Simplify your `/posts/show/` and `/subreddit/show/` methods in `/controllers/post.js`
 
 ```js
 // SHOW
@@ -111,7 +107,7 @@ app.get('/n/:subreddit', (req, res) => {
 
 Notice it was only a one line change for each, but it's a lot simpler now! One more refactor to go:
 
-> Update `/comments/create` in `/controllers/comments` to the following:
+Update `/comments/create` in `/controllers/comments` to the following:
 
 ```js
 const Post = require('../models/post');
@@ -140,8 +136,6 @@ module.exports = (app) => {
   });
 };
 ```
-
-<!-- -->
 
 Refactor all the code blocks above to be async/await.
 
@@ -181,7 +175,7 @@ Again, utilize the user experience as a starting point. A user who wants to make
 
 Let's make a new `replies.js` file in our `controllers` folder. Within, we'll need access to both the `Post` and `Comment` models. At the end, we'll have two freshly implemented routes: `NEW` and `CREATE`.
 
-> create `/controllers/replies` and include the following code:
+Create `/controllers/replies` and include the following code:
 
 ```js
 const Post = require('../models/post');
@@ -223,7 +217,7 @@ require('./controllers/replies.js')(app);
 
 Next, create your `replies-new` template and have the content sit in the middle 6 columns of the 12 column grid:
 
-> Create `/views/replies-new` in your `/views` folder and include the following code:
+Create `/views/replies-new` in your `/views` folder and include the following code:
 
 ```html
 <div class="row">
@@ -245,7 +239,7 @@ Refresh the page and click the `Reply` button on a comment. We can see that our 
 
 The next step is to write our `/replies/create` route logic.
 
-> Update the `/create` method in `/controllers/replies` to the following:
+Update the `/create` method in `/controllers/replies` to the following:
 
 ```js
 // CREATE REPLY
@@ -280,7 +274,7 @@ When you submit the reply form, what occurs? Can you confirm (in the database) t
 
 Finally, let's set up our `post-show` template to show these sub comments as well once they are created. If we just try to manually write in our comments and their comments, we won't be able to represent the whole tree. We'll need to use a **Partial Template** to make a recursive representation of all the comments and their comments.
 
-> In `/views/posts-show`, replace your `{{#each post.comments}}` code block with the following:
+In `/views/posts-show`, replace your `{{#each post.comments}}` code block with the following:
 
 ```html
 {{#each post.comments}}
@@ -307,7 +301,7 @@ The code inside this `partial` template calls itself so it loops until every com
 
 Finally, let's give each comment a bit of an indent by creating a style for the class `.comment-indent`. Let's put this in a general stylesheet in case we want to add more styles later.
 
-> Create a `public` folder and create a `css` folder within it. Within the `css` folder, create an `all.css` file and place the following code in it:
+Create a `public` folder and create a `css` folder within it. Within the `css` folder, create an `all.css` file and place the following code in it:
 
 ```css
 .comment-indent {
@@ -315,7 +309,7 @@ Finally, let's give each comment a bit of an indent by creating a style for the 
 }
 ```
 
-> Remember we need to now link the style sheet in `/views/layouts/main.handlebars` so that we can view it:
+Remember we need to now link the style sheet in `/views/layouts/main.handlebars` so that we can view it:
 
 ```html
 <head>
