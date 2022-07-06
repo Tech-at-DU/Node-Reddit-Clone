@@ -1,7 +1,4 @@
----
 # Create a Post
-
----
 
 Follow the technical planning list we made, and make sub tasks for each major feature.
 
