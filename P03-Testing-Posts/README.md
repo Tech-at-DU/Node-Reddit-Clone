@@ -29,11 +29,10 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const { describe, it } = require('mocha');
 const app = require('../server');
+chai.use(chaiHttp);
 const agent = chai.request.agent(app);
 
 const should = chai.should();
-
-chai.use(chaiHttp);
 
 describe('site', function () {
   // Describe what you are testing
@@ -105,16 +104,15 @@ Next let's make a test for the `/posts/create` route we made. We can make a new 
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const { describe, it } = require('mocha');
+chai.use(chaiHttp);
+const app = require('../server');
 const agent = chai.request.agent(app);
 
 // Import the Post model from our models folder so we
 // we can use it in our tests.
 const Post = require('../models/post');
-const app = require('../server');
 
 const should = chai.should();
-
-chai.use(chaiHttp);
 
 describe('Posts', function () {
   // Post that we'll use for testing purposes
