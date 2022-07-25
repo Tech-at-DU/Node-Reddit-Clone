@@ -32,7 +32,7 @@ Finally, for testing, we can add an error handler for connection errors.
 mongoose.connect(
   url,
   {
-    useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false,
+    useNewUrlParser: true, useUnifiedTopology: true,
   },
   (err) => {
     assert.equal(null, err);
