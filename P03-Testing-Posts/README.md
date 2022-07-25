@@ -34,14 +34,14 @@ const agent = chai.request.agent(app);
 
 const should = chai.should();
 
-describe('site', function () {
+describe('site', () => {
   // Describe what you are testing
   it('Should have home page', (done) => {
     // Describe what should happen
     // In this case we test that the home page loads
     agent
       .get('/')
-      .end(function (err, res) {
+      .end((err, res) => {
         if (err) {
           return done(err);
         }
@@ -121,7 +121,7 @@ describe('Posts', () => {
     url: 'https://www.google.com',
     summary: 'post summary'
   };
-  it('should create with valid attributes at POST /posts/new', function (done) {
+  it('should create with valid attributes at POST /posts/new', (done) => {
     // TODO: test code goes here!
   });
 });
@@ -153,24 +153,24 @@ it('Should create with valid attributes at POST /posts/new', (done) => {
         .set('content-type', 'application/x-www-form-urlencoded')
         // Make a request to create another
         .send(newPost)
-        .then(function (res) {
+        .then((res) => {
           Post.estimatedDocumentCount()
-            .then(function (newDocCount) {
+            .then((newDocCount) => {
               // Check that the database has status 200
               res.should.have.status(200);
               // Check that the database has one more post in it
               newDocCount.should.equal(initialDocCount + 1)
               done();
             })
-            .catch(function (err) {
+            .catch((err) => {
               done(err);
             });
         })
-        .catch(function (err) {
+        .catch((err) => {
           done(err);
         });
     })
-    .catch(function (err) {
+    .catch((err) => {
         done(err);
     });
 });
@@ -182,7 +182,7 @@ This is a good test, but there's one problem: **each time we run our test suite 
 > Update your test to remove the `post` at the by utilizing mocha's `after` hook:
 
 ```js
-it('Should create with valid attributes at POST /posts/new', function(done) {
+it('Should create with valid attributes at POST /posts/new', (done) => {
 
 ...
 
