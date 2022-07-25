@@ -36,7 +36,7 @@ const should = chai.should();
 
 describe('site', function () {
   // Describe what you are testing
-  it('Should have home page', function (done) {
+  it('Should have home page', (done) => {
     // Describe what should happen
     // In this case we test that the home page loads
     agent
@@ -114,7 +114,7 @@ const Post = require('../models/post');
 
 const should = chai.should();
 
-describe('Posts', function () {
+describe('Posts', () => {
   // Post that we'll use for testing purposes
   const newPost = {
     title: 'post title',
@@ -142,10 +142,10 @@ Now let's take this pseudocode and make something of it! For these tests we're g
 > Fill in the `it` statement to fulfill the needs of the pseudocode:
 
 ```js
-it('Should create with valid attributes at POST /posts/new', function(done) {
+it('Should create with valid attributes at POST /posts/new', (done) => {
   // Checks how many posts there are now
   Post.estimatedDocumentCount()
-    .then(function (initialDocCount) {
+    .then((initialDocCount) => {
       agent
         .post('/posts/new')
         // This line fakes a form post,
@@ -188,7 +188,7 @@ it('Should create with valid attributes at POST /posts/new', function(done) {
 
 });
 
-after(function () {
+after(() => {
   Post.findOneAndDelete(newPost);
 });
 ```
