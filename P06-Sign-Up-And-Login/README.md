@@ -175,7 +175,7 @@ userSchema.methods.comparePassword = function (password, done) {
     done(err, isMatch);
   });
 };
->
+
 module.exports = model('User', userSchema);
 ```
 
