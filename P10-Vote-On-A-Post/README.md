@@ -99,39 +99,32 @@ app.use(express.static('public'));
 > Finally, create a `js` folder in your `public` folder. Then create a `posts.js` file within the `js` folder. Now copy the following code into our newly created `public/js/posts.js`:
 
 ```js
-$(document).ready(function() {
-  $('.vote-up').submit(function(e) {
-    e.preventDefault();
+document.body.addEventListener('submit', e => {
+  const postId = e.target.dataset.id
+  console.log(e.target)
+  console.log(postId);
+	if (e.target.matches('.vote-up')) {
+		e.preventDefault();
+		voteUp(postId)
+	} else if (e.target.matches('.vote-down')) {
+		 e.preventDefault();
+     voteDown(postId)
 
-    const postId = $(this).data('id');
-    $.ajax({
-      type: 'PUT',
-      url: 'posts/' + postId + '/vote-up',
-      success: function(data) {
-        console.log('voted up!');
-      },
-      error: function(err) {
-        console.log(err.messsage);
-      }
-    });
-  });
+	}
+})
 
-  $('.vote-down').submit(function(e) {
-    e.preventDefault();
+async function voteUp(postId) {
+	const res = await fetch(`posts/${postId}/vote-up`, { method: 'PUT' })
+	const data = await res.json()
+  console.log('voted up!');
+}
 
-    const postId = $(this).data('id');
-    $.ajax({
-      type: 'PUT',
-      url: 'posts/' + postId + '/vote-down',
-      success: function(data) {
-        console.log('voted down!');
-      },
-      error: function(err) {
-        console.log(err.messsage);
-      }
-    });
-  });
-});
+async function voteDown(postId) {
+	const res = await fetch(`posts/${postId}/vote-down`, { method: 'PUT' })
+	const data = await res.json()
+  console.log('voted down!');
+	 
+}
 ```
 
 Now refresh your browser tab, open your Developer Tools and check the Network tab (you may need to turn recording on via `cmd+R`). If we click the vote up or down buttons, we should be able to see each request flying out to your server. Click on one and see what error is coming back. You can even preview the response. Route not found! Great! Let's set those up!
